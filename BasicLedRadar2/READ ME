@@ -1,0 +1,46 @@
+🔧 Arduino Radar Sensor Project
+This project simulates a basic scanning radar system using an HC-SR04 ultrasonic distance sensor mounted on a servo motor, paired with three LEDs to indicate object proximity at different angles. It’s a great demonstration of servo control, distance sensing, and analog output in Arduino.
+
+🛠️ Hardware Overview
+Microcontroller: Arduino Uno (or compatible)
+
+Distance Sensor: HC-SR04 Ultrasonic Sensor
+
+Servo Motor: Standard hobby servo
+
+LEDs: 3 (representing left, center, and right zones)
+
+Custom Part: 3D-printed open-top plastic box mounted on the servo to hold the ultrasonic sensor
+
+The ultrasonic sensor is mounted inside a small 3D-printed enclosure, which is attached to the horn of a servo motor. As the servo sweeps from 0° to 180°, the sensor scans the environment. Depending on the detected distance, corresponding LEDs light up to indicate how close an object is in that direction.
+
+⚙️ Code Functionality
+The program performs the following steps:
+
+Initialization:
+
+Attaches the servo to pin 2.
+
+Sets pin modes for the left (D5), forward (D6), and right (D11) LEDs.
+
+Initializes the ultrasonic sensor using the NewPing library.
+
+Scanning Logic:
+
+The servo motor sweeps from 0° to 180° in three segments:
+
+0°–60°: Left zone → Controls the left LED
+
+61°–120°: Center zone → Controls the forward LED
+
+121°–180°: Right zone → Controls the right LED
+
+At each angle, the ultrasonic sensor takes a distance reading.
+
+The brightness of each LED is adjusted using analogWrite() based on how close an object is. Closer objects result in brighter LEDs.
+
+Distance Mapping:
+
+Readings are mapped from 0–20 cm to LED brightness levels (0–255).
+
+If no object is detected (ping_cm() == 0), the LED is turned off.
