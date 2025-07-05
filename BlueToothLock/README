@@ -1,2 +1,4 @@
 Used the DABBLE library and app to send messages via it's terminal on the app
 ran well just off of an elegoo arduino but alternate powersupply may be neccessary for long time use
+MG90S servo goes into the hole of the rail holder with the tabs out pushing into the whole. 
+Gear friction fits directly onto servo gear, may need to increase size of center hole depending on 3d printer accuracy/tolerance
